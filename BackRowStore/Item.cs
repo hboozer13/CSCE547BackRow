@@ -1,8 +1,22 @@
 using System;
+using System.Diagnostics;
 
-public class Item
+namespace BackRowStore 
 {
-    public string name { get; set; }
-    public double price { get; set; }
-    public string itemID { get; set; }
+    public class Item
+    {
+        public string name { get; set; }
+        public double price { get; set; }
+        public string itemID { get; set; }
+        public int quantity { get; set; }
+
+        public Item()
+        {
+            this.name = name;
+            this.price = price;
+            this.itemID = Guid.NewGuid.toString();
+            this.quantity = quantity;
+        }
+
+    }
 }
