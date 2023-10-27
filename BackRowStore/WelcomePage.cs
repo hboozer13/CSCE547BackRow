@@ -2,7 +2,7 @@
 
 public class WelcomePage
 {
-	static void Main()
+	public static void Main(string[] args)
 	{
 		Console.WriteLine("Welcome to the Back Row Store!");
 	}
