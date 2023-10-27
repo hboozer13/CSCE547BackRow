@@ -14,7 +14,7 @@ namespace BackRowStore
         {
             this.name = name;
             this.price = price;
-            this.itemID = Guid.NewGuid.toString();
+            this.itemID = Guid.NewGuid().ToString();
             this.quantity = quantity;
         }
 
