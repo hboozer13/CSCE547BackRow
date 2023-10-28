@@ -7,6 +7,7 @@ namespace BackRowStore.Controllers
     [Route("[controller]")]
     public class ItemController : ControllerBase
     {
+        // Database of items in the store (Dictionary collection)
         Dictionary<string, (string Name, double Price, int Quantity)> itemDictionary = new Dictionary<string, (string, double, int)>
         {
             {"001", ("water bottle", 12.99, 11) },
@@ -23,10 +24,12 @@ namespace BackRowStore.Controllers
         }
 
         
-
+        // GET request to obtain the items displayed in the store
         [HttpGet("GetAllItems", Name = "GetAllItems")]
         public IEnumerable<Item> GetAllItems()
         {
+            // Projects each item in the dictionary to a new 'Item' object
+            // Use of LINQ Query
             return itemDictionary.Select(item => new Item
             {
                 itemID = item.Key,

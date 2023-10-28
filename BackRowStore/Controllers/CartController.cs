@@ -13,6 +13,15 @@ namespace BackRowStore.Controllers
             _logger = logger;
         }
 
+        [HttpPost("CreateCart", Name = "CreateCart")]
+        public IActionResult CreateCart()
+        {
+            // Creating a unique cart
+            string cartId = Guid.NewGuid().ToString();
+            var cart = new Cart(cartId);
+            return Ok("Cart was Created");
+        }
+
         [HttpGet("GetCart", Name = "GetCart")]
         public IEnumerable<Item> GetCart()
         {

@@ -1,15 +1,17 @@
 ﻿using System;
 
-public class Cart
-{
-	public string cartID { get; set; }
-	public double cartBalance { get; set; }
-
-	public Cart()
+namespace BackRowStore 
+{ 
+	public class Cart
 	{
-		this.cartID = Guid.NewGuid().ToString();
-		this.cartBalance = 0;
-	}
+		public string cartID { get; set; }
+		public List<Item> items { get; set; }
+		public double cartBalance { get; set; }
 
-	
+        public Cart(string cartId)
+        {
+            cartID = cartId;
+            items = new List<Item>();
+        }
+    }
 }

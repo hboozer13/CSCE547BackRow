@@ -9,14 +9,5 @@ namespace BackRowStore
         public string name { get; set; }
         public double price { get; set; }
         public int quantity { get; set; }
-
-        public Item()
-        {
-            this.name = name;
-            this.price = price;
-            this.itemID = Guid.NewGuid().ToString();
-            this.quantity = quantity;
-        }
-
     }
 }
