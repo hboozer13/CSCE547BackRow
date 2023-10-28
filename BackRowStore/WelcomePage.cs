@@ -9,5 +9,6 @@ public class WelcomePage
 
 	public WelcomePage()
 	{
+		//
 	}
 }
