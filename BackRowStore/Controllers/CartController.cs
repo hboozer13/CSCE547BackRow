@@ -6,6 +6,11 @@ namespace BackRowStore.Controllers
     [Route("[controller]")]
     public class CartController : ControllerBase
     {
+        public Dictionary<string, List<string>> carts = new Dictionary<string, List<string>>
+        {
+            { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "item", "item" } }
+        };
+
         private readonly ILogger<CartController> _logger;
 
         public CartController(ILogger<CartController> logger)
@@ -18,18 +23,22 @@ namespace BackRowStore.Controllers
         {
             // Creating a unique cart
             string cartId = Guid.NewGuid().ToString();
-            var cart = new Cart(cartId);
-            return Ok("Cart was Created");
+            carts[cartId] = new List<string>();
+
+            return Ok("Cart was Created. Your Cart ID is: "+ cartId);
         }
 
-        [HttpGet("GetCart", Name = "GetCart")]
-        public IEnumerable<Item> GetCart()
+        [HttpGet("{cartId}")]
+        public IActionResult GetCart(string cartId)
         {
-            return Enumerable.Range(1, 5).Select(index => new Item
+            if (carts.TryGetValue(cartId, out var cart)) 
             {
-                name = "ITEM",
-            })
-            .ToArray();
+                return Accepted(cart);
+            } else
+            {
+                return NotFound();
+            }
+            
         }
 
         [HttpGet("GetTotals", Name = "GetTotals")]
