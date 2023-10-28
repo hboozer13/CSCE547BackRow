@@ -30,13 +30,20 @@ namespace BackRowStore.Controllers
         {
             // Projects each item in the dictionary to a new 'Item' object
             // Use of LINQ Query
-            return itemDictionary.Select(item => new Item
+            if (itemDictionary.Count == 0)
             {
-                itemID = item.Key,
-                name = item.Value.Name,
-                price = item.Value.Price,
-                quantity = item.Value.Quantity
-            });
+                return Enumerable.Empty<Item>();
+            } else
+            {
+                // Use of LINQ Query
+                return itemDictionary.Select(item => new Item
+                {
+                    itemID = item.Key,
+                    name = item.Value.Name,
+                    price = item.Value.Price,
+                    quantity = item.Value.Quantity
+                });
+            }
         }
 
         [HttpGet("AddItemToCart", Name = "AddItemToCart")]
