@@ -10,8 +10,8 @@ namespace BackRowStore
 
         public Cart(string cartId)
         {
-            this.cartID = cartId;
-            this.items = new List<Item>();
+            cartID = cartId;
+            items = new List<Item>();
         }
     }
 }
