@@ -1,3 +1,4 @@
+using BackRowStore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.Net;
@@ -20,13 +21,18 @@ namespace BackRowStore.Controllers
         };
 
         private readonly ILogger<ItemController> _logger;
+        private readonly IDataService _dataService;
 
         public ItemController(ILogger<ItemController> logger)
         {
             _logger = logger;
         }
+        public ItemController(IDataService DataService)
+        {
+            _dataService = DataService;
+        }
 
-        
+
         // GET request to obtain the items displayed in the store
         [HttpGet("GetAllItems", Name = "GetAllItems")]
         public IEnumerable<Item> GetAllItems()

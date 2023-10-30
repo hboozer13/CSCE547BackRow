@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BackRowStore.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BackRowStore.Controllers
 {
@@ -6,10 +7,15 @@ namespace BackRowStore.Controllers
     [Route("[controller]")]
     public class CartController : ControllerBase
     {
+
+        private readonly IDataService _dataService;
+
+        /*
         public Dictionary<string, List<string>> carts = new Dictionary<string, List<string>>
         {
             { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "item1", "item2" } }
         };
+        */
 
         private readonly ILogger<CartController> _logger;
 
@@ -18,22 +24,25 @@ namespace BackRowStore.Controllers
             _logger = logger;
         }
 
+        public CartController(IDataService DataService)
+        {
+            _dataService = DataService;
+        }
+
         [HttpPost("CreateCart", Name = "CreateCart")]
         public IActionResult CreateCart()
         {
-            // Creating a unique cart
-            string cartId = Guid.NewGuid().ToString();
-            carts[cartId] = new List<string>();
-
-            return Ok("Cart was Created. Your Cart ID is: "+ cartId);
+            _dataService.createCart();
+            return Ok();
         }
 
         [HttpGet("{cartId}")]
-        public IActionResult GetCart(string cartId)
+        public IActionResult GetCart(string cartID)
         {
-            if (carts.TryGetValue(cartId, out var cart)) 
+            List<string> cartnew = _dataService.getCart(cartID);
+            if (cartnew != null) 
             {
-                return Accepted(cart);
+                return Accepted(cartnew);
             } else
             {
                 return NotFound();
@@ -64,10 +73,10 @@ namespace BackRowStore.Controllers
             {
                 return BadRequest("Quantity is empty");
             }
-            if (carts.TryGetValue(cartID, out var cart))
+            if (_dataService.cartExists(cartID))
             {
-                cart.Add(itemID);
-                return Accepted(cart);
+                _dataService.addToCart(cartID, itemID, quantity);
+                return Accepted(_dataService.getCart(cartID));
             }
             else
             {

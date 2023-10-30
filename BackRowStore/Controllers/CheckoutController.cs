@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BackRowStore.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BackRowStore.Controllers
 {
@@ -7,6 +8,12 @@ namespace BackRowStore.Controllers
     public class CheckoutController : ControllerBase
     {
         private readonly ILogger<CheckoutController> _logger;
+        private readonly IDataService _dataService;
+
+        public CheckoutController(IDataService DataService)
+        {
+            _dataService = DataService;
+        }
 
         public CheckoutController(ILogger<CheckoutController> logger)
         {
