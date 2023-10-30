@@ -23,10 +23,13 @@ namespace BackRowStore.Controllers
         private readonly ILogger<ItemController> _logger;
         private readonly IDataService _dataService;
 
+        /*
         public ItemController(ILogger<ItemController> logger)
         {
             _logger = logger;
         }
+        */
+
         public ItemController(IDataService DataService)
         {
             _dataService = DataService;

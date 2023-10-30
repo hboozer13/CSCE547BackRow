@@ -10,15 +10,17 @@ namespace BackRowStore.Controllers
         private readonly ILogger<CheckoutController> _logger;
         private readonly IDataService _dataService;
 
+
         public CheckoutController(IDataService DataService)
         {
             _dataService = DataService;
         }
-
+        /*
         public CheckoutController(ILogger<CheckoutController> logger)
         {
             _logger = logger;
         }
+        */
 
         [HttpGet("ProcessPayment", Name = "ProcessPayment")]
         public IEnumerable<Item> ProcessPayment()
