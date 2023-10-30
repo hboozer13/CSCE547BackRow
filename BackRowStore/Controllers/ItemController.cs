@@ -48,42 +48,5 @@ namespace BackRowStore.Controllers
                 });
             }
         }
-
-        //PUT request to add an item to a cart
-        /// <summary>
-        /// Takes a cartID, itemID and quantity to locate and add a new item to a specified cart
-        /// </summary>
-        /// <param name="cartID"></param>
-        /// <param name="itemID"></param>
-        /// <param name="quantity"></param>
-        /// <returns></returns>
-        [HttpPut("AddItemToCart", Name = "AddItemToCart")]
-        public IActionResult AddItemToCart(string cartID, string itemID, int quantity)
-        {
-            if (!string.IsNullOrEmpty(cartID)) 
-            {
-                return BadRequest("cartID is empty.");
-            }
-            if (!string.IsNullOrEmpty(itemID)) 
-            {
-                return BadRequest("itemID is empty.");
-            }
-            if (quantity == 0) 
-            {
-                return BadRequest("Quantity is empty");
-            }
-            if (itemDictionary.Count == 0) 
-            {
-                return BadRequest("No items in database");
-            }
-            // TODO: Need to find a way to call cart dictionary
-            if (!CartController.carts.ContainsKey(cartID)) 
-            {
-                return BadRequest("Cart not found");
-            }
-
-            
-            return Ok();
-        }
     }
 }
