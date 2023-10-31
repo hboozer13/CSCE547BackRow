@@ -35,21 +35,21 @@ namespace BackRowStore.Controllers
         public IActionResult CreateCart()
         {
             _dataService.createCart();
-            return Ok();
+            return Ok(carts);
         }
 
         [HttpGet("{cartId}")]
         public IActionResult GetCart(string cartID)
         {
             List<string> cartnew = _dataService.getCart(cartID);
-            if (cartnew != null) 
+            /*if (cartnew != null) 
             {
                 return Accepted(cartnew);
             } else
             {
                 return NotFound();
-            }
-            
+            }*/
+            return Ok(cartnew);
         }
 
         //PUT request to add an item to a cart
