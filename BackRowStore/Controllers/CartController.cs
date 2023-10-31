@@ -38,7 +38,7 @@ namespace BackRowStore.Controllers
             return Ok(_dataService.getAllCarts());
         }
 
-        [HttpGet("{cartId}")]
+        [HttpGet("GetCart")]
         public IActionResult GetCart(string cartID)
         {
             List<string> cartnew = _dataService.getCart(cartID);
