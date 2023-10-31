@@ -82,13 +82,10 @@ namespace BackRowStore.Controllers
         }
 
         [HttpGet("GetTotals", Name = "GetTotals")]
-        public IEnumerable<Item> GetTotals()
+        public int GetTotals(string cartID)
         {
-            return Enumerable.Range(1, 5).Select(index => new Item
-            {
-                name = "ITEM",
-            })
-            .ToArray();
+            int total = _dataService.getTotals(cartID);
+            return total;
         }
     }
 }
