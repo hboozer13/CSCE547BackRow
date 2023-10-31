@@ -11,11 +11,6 @@ namespace BackRowStore.Controllers
         private readonly IDataService _dataService;
 
         
-        /*public Dictionary<string, List<string>> carts = new Dictionary<string, List<string>>
-        {
-            { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "item1", "item2" } }
-        };*/
-        
 
         private readonly ILogger<CartController> _logger;
 
