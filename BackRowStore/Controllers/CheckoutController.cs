@@ -14,13 +14,16 @@ namespace BackRowStore.Controllers
         }
 
         [HttpGet("ProcessPayment", Name = "ProcessPayment")]
-        public IEnumerable<Item> ProcessPayment()
+        public IActionResult ProcessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
         {
-            return Enumerable.Range(1, 5).Select(index => new Item
+
+            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date) {
+                return Accepted();
+            } else
             {
-                name = "ITEM",
-            })
-            .ToArray();
+                return BadRequest();
+            }
+                
         }
     }
 }
