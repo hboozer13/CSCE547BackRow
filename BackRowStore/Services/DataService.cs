@@ -60,14 +60,14 @@ namespace BackRowStore.Services
             return Task.CompletedTask;
         }
 
-        public int getTotals(string cartID)
+        public double getTotals(string cartID)
         {
-            int number = 0;
-            for (int i = 0; i < carts[cartID].Count; i++)
+            double runningTotal = 0;
+            foreach (string itemID in carts[cartID])
             {
-                number++;
+                runningTotal += itemDictionary[itemID].Price;
             }
-            return number;
+            return runningTotal;
         }
 
         public bool cartExists(string cartID)
