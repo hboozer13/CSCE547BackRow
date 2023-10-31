@@ -64,3 +64,36 @@ C:\Users\Hayden's PC\source\repos\CSCE547Project\BackRowStore\obj\Debug\net7.0\r
 C:\Users\Hayden's PC\source\repos\CSCE547Project\BackRowStore\obj\Debug\net7.0\BackRowStore.pdb
 C:\Users\Hayden's PC\source\repos\CSCE547Project\BackRowStore\obj\Debug\net7.0\BackRowStore.genruntimeconfig.cache
 C:\Users\Hayden's PC\source\repos\CSCE547Project\BackRowStore\obj\Debug\net7.0\ref\BackRowStore.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\appsettings.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRowStore.exe
+C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRowStore.deps.json
+C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRowStore.runtimeconfig.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRowStore.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRowStore.pdb
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.csproj.AssemblyReference.cache
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.AssemblyInfoInputs.cache
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.AssemblyInfo.cs
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.csproj.CoreCompileInputs.cache
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets\msbuild.BackRowStore.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets\msbuild.build.BackRowStore.props
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.BackRowStore.props
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.BackRowStore.props
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\scopedcss\bundle\BackRowStore.styles.css
+C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.csproj.CopyComplete
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\refint\BackRowStore.dll
+C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.pdb
+C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.genruntimeconfig.cache
+C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\ref\BackRowStore.dll

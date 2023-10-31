@@ -1,5 +1,9 @@
+using BackRowStore.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Net;
 using System.Xml.Linq;
+
 
 namespace BackRowStore.Controllers
 {
@@ -17,13 +21,21 @@ namespace BackRowStore.Controllers
         };
 
         private readonly ILogger<ItemController> _logger;
+        private readonly IDataService _dataService;
 
+        /*
         public ItemController(ILogger<ItemController> logger)
         {
             _logger = logger;
         }
+        */
 
-        
+        public ItemController(IDataService DataService)
+        {
+            _dataService = DataService;
+        }
+
+
         // GET request to obtain the items displayed in the store
         [HttpGet("GetAllItems", Name = "GetAllItems")]
         public IEnumerable<Item> GetAllItems()
@@ -44,12 +56,6 @@ namespace BackRowStore.Controllers
                     quantity = item.Value.Quantity
                 });
             }
-        }
-
-        [HttpGet("AddItemToCart", Name = "AddItemToCart")]
-        public IEnumerable<(string Name, double Price, int Quantity)> AddItemToCart()
-        {
-            return itemDictionary.Values;
         }
     }
 }
