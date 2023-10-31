@@ -87,6 +87,7 @@ namespace BackRowStore.Services
             {
                 runningTotal += itemDictionary[item].Price;
             }
+            bundleTotal = runningTotal;
             // Had to hard code in value, implementation refuses to accept an object in a dictionary so I can't make it dynamic. Will fix in part 2 of the project.
             if (carts[cartID].Contains(bundles["Magic Krabs Bundle"][0]) && carts[cartID].Contains(bundles["Magic Krabs Bundle"][1]))
             {
