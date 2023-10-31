@@ -60,6 +60,16 @@ namespace BackRowStore.Services
             return Task.CompletedTask;
         }
 
+        public int getTotals(string cartID)
+        {
+            int number = 0;
+            for (int i = 0; i < carts[cartID].Count; i++)
+            {
+                number++;
+            }
+            return number;
+        }
+
         public bool cartExists(string cartID)
         {
             if (carts.ContainsKey(cartID))
