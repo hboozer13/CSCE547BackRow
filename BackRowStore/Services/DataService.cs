@@ -88,5 +88,14 @@ namespace BackRowStore.Services
         {
             return itemDictionary;
         }
+
+        public Task proccessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
+        {
+            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date)
+            {
+
+            }
+            return Task.CompletedTask;
+        }
     }
 }

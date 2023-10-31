@@ -26,7 +26,7 @@ namespace BackRowStore.Controllers
         public IActionResult ProcessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
         {
 
-            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date) {
+            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date && _dataService.cartExists(cartId)) {
                 return Accepted();
             } else
             {
