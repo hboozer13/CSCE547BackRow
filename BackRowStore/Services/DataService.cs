@@ -8,6 +8,7 @@ namespace BackRowStore.Services
     {
         public Dictionary<string, (string Name, double Price, int Quantity)> itemDictionary;
         public Dictionary<string, List<string>> carts;
+        public Dictionary<string, List<string>> bundles;
 
         public DataService()
         {
@@ -31,6 +32,11 @@ namespace BackRowStore.Services
             carts = new Dictionary<string, List<string>>
             {
                 { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "005", "008" } }
+            };
+
+            bundles = new Dictionary<string, List<string>>
+            {
+                { "Magic Krabs Bundle", new List<string> {"005", "009"} }
             };
         }
 
