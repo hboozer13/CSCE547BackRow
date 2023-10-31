@@ -18,7 +18,7 @@
 
             carts = new Dictionary<string, List<string>>
             {
-                { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "item1", "item2" } }
+                { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "001", "002" } }
             };
         }
         public Task addToCart(string cartID, string itemID, int quantity)
@@ -64,6 +64,11 @@
                 return true;
             }
             return false;
+        }
+
+        public Dictionary<string, List<string>> getAllCarts()
+        {
+            return carts;
         }
     }
 }

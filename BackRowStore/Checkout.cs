@@ -6,7 +6,7 @@ namespace BackRowStore
     {
         //public Cart currentCart = new Cart();
         public int cardNumber { get; set; }
-        public string exp {  get; set; }    
+        public DateTime exp {  get; set; }    
         public string cardholderName { get; set; }
         public int cvc { get; set; }
 
