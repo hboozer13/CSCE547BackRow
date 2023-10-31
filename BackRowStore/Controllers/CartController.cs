@@ -11,10 +11,10 @@ namespace BackRowStore.Controllers
         private readonly IDataService _dataService;
 
         
-        public Dictionary<string, List<string>> carts = new Dictionary<string, List<string>>
+        /*public Dictionary<string, List<string>> carts = new Dictionary<string, List<string>>
         {
             { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "item1", "item2" } }
-        };
+        };*/
         
 
         private readonly ILogger<CartController> _logger;
@@ -42,14 +42,14 @@ namespace BackRowStore.Controllers
         public IActionResult GetCart(string cartID)
         {
             List<string> cartnew = _dataService.getCart(cartID);
-            /*if (cartnew != null) 
+            if (cartnew != null)
             {
-                return Accepted(cartnew);
-            } else
+                return Ok(cartnew);
+            }
+            else
             {
                 return NotFound();
-            }*/
-            return Ok(cartnew);
+            }
         }
 
         //PUT request to add an item to a cart
