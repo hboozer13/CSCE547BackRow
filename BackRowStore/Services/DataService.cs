@@ -1,4 +1,7 @@
-﻿namespace BackRowStore.Services
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using System.Runtime.InteropServices;
+
+namespace BackRowStore.Services
 {
     public class DataService : IDataService
     {
@@ -23,7 +26,7 @@
         }
         public Task addToCart(string cartID, string itemID, int quantity)
         {
-            if (itemDictionary.ContainsKey(itemID) && quantity > 0)
+            if (itemDictionary.ContainsKey(itemID) && quantity > 0 && quantity <= itemDictionary[itemID].Quantity)
             {
                 if (carts.TryGetValue(cartID, out var cart))
                 {
@@ -69,6 +72,11 @@
         public Dictionary<string, List<string>> getAllCarts()
         {
             return carts;
+        }
+
+        public Dictionary<string, (string, double, int)> getShop()
+        {
+            return itemDictionary;
         }
     }
 }
