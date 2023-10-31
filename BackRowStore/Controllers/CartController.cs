@@ -35,7 +35,7 @@ namespace BackRowStore.Controllers
         public IActionResult CreateCart()
         {
             _dataService.createCart();
-            return Ok(carts);
+            return Ok(_dataService.getAllCarts());
         }
 
         [HttpGet("{cartId}")]
