@@ -6,7 +6,7 @@ namespace BackRowStore.Services
     {
         Task addToCart(string cartId, string itemID, int quantity);
 
-        List<string> getCart(string cartId);
+        List<string> getCart(string cartID);
         public Task createCart();
 
         public bool cartExists(string cartID);
