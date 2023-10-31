@@ -11,7 +11,7 @@ namespace BackRowStore.Services
 
         public bool cartExists(string cartID);
 
-        public int getTotals(string cartID);
+        public double getTotals(string cartID);
 
         public Dictionary<string, List<string>> getAllCarts();
 
