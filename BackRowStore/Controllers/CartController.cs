@@ -70,7 +70,7 @@ namespace BackRowStore.Controllers
             {
                 return BadRequest("Quantity is empty");
             }
-            if (quantity <= _dataService.getShop()[itemID].Item3)
+            if (quantity > _dataService.getShop()[itemID].Item3)
             {
                 return BadRequest("Not enough item in stock!");
             }
