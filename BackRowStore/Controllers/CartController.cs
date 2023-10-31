@@ -85,9 +85,9 @@ namespace BackRowStore.Controllers
         }
 
         [HttpGet("GetTotals", Name = "GetTotals")]
-        public double GetTotals(string cartID)
+        public string GetTotals(string cartID)
         {
-            double total = _dataService.getTotals(cartID);
+            string total = _dataService.getTotals(cartID);
             return total;
         }
     }

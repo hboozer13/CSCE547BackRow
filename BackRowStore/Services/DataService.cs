@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BackRowStore.Services
@@ -76,14 +77,27 @@ namespace BackRowStore.Services
             return Task.CompletedTask;
         }
 
-        public double getTotals(string cartID)
+        public string getTotals(string cartID)
         {
             double runningTotal = 0;
+            double bundleTotal = 0;
+            double totalTax = 0;
+            string output = "";
             foreach (string item in carts[cartID])
             {
                 runningTotal += itemDictionary[item].Price;
             }
-            return runningTotal;
+            // Had to hard code in value, implementation refuses to accept an object in a dictionary so I can't make it dynamic. Will fix in part 2 of the project.
+            if (carts[cartID].Contains(bundles["Magic Krabs Bundle"][0]) && carts[cartID].Contains(bundles["Magic Krabs Bundle"][1]))
+            {
+                var id1 = bundles["Magic Krabs Bundle"][0];
+                var id2 = bundles["Magic Krabs Bundle"][1];
+                bundleTotal = runningTotal - (itemDictionary[id1].Price + itemDictionary[id2].Price) + 750.00;
+            }
+            totalTax = (bundleTotal * 0.07) + bundleTotal;
+
+            output += "runningTotal: " + runningTotal + "\nbundleTotal: " + bundleTotal + "\ntotalTax: " + totalTax;
+            return output;
         }
 
         public bool cartExists(string cartID)
