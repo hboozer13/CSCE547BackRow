@@ -27,7 +27,11 @@
             {
                 if (carts.TryGetValue(cartID, out var cart))
                 {
-                    cart.Add(itemID);
+                    for (int i =0; i < quantity; i++) 
+                    {
+                        cart.Add(itemID);
+                    }
+                    
                 }
             }
             return Task.CompletedTask;
