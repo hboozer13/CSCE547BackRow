@@ -469,19 +469,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\russe\\.nuget\\packages\\": {}
+    "C:\\Users\\Hayden's PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
+      "projectUniqueName": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj",
       "projectName": "BackRowStore",
-      "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
-      "packagesPath": "C:\\Users\\russe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\obj\\",
+      "projectPath": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj",
+      "packagesPath": "C:\\Users\\Hayden's PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\russe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hayden's PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

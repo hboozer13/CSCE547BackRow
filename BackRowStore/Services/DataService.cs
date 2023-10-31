@@ -71,9 +71,9 @@ namespace BackRowStore.Services
         public double getTotals(string cartID)
         {
             double runningTotal = 0;
-            foreach (string itemID in carts[cartID])
+            foreach (string item in carts[cartID])
             {
-                runningTotal += itemDictionary[itemID].Price;
+                runningTotal += itemDictionary[item].Price;
             }
             return runningTotal;
         }
@@ -97,13 +97,5 @@ namespace BackRowStore.Services
             return itemDictionary;
         }
 
-        public Task proccessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
-        {
-            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date)
-            {
-
-            }
-            return Task.CompletedTask;
-        }
     }
 }
