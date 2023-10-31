@@ -42,8 +42,10 @@
             if (carts.TryGetValue(cartID, out var cart))
             {
                 return cart;
+            } else
+            {
+                return null;
             }
-            return null;
 
         }
 
