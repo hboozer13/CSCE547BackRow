@@ -14,5 +14,7 @@ namespace BackRowStore.Services
         public int getTotals(string cartID);
 
         public Dictionary<string, List<string>> getAllCarts();
+
+        public Dictionary<string, (string, double, int)> getShop();
     }
 }
