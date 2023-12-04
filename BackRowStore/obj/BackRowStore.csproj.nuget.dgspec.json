@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj": {}
+    "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj": {
+    "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
+        "projectUniqueName": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj",
         "projectName": "BackRowStore",
-        "projectPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
-        "packagesPath": "C:\\Users\\chann\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\obj\\",
+        "projectPath": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\BackRowStore.csproj",
+        "packagesPath": "C:\\Users\\Hayden's PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hayden's PC\\source\\repos\\CSCE547Project\\BackRowStore\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\chann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Hayden's PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,6 +43,20 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -73,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

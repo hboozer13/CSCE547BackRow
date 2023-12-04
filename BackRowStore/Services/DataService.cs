@@ -32,7 +32,7 @@ namespace BackRowStore.Services
 
             carts = new Dictionary<string, List<string>>
             {
-                { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "005", "008" } }
+                //
             };
 
             bundles = new Dictionary<string, List<string>>
@@ -57,6 +57,7 @@ namespace BackRowStore.Services
             return Task.CompletedTask;
         }
 
+        // 
         public List<string> getCart(string cartID)
         {
             if (carts.TryGetValue(cartID, out var cart))
@@ -101,6 +102,7 @@ namespace BackRowStore.Services
             return output;
         }
 
+        // validates if a cart exists given an ID
         public bool cartExists(string cartID)
         {
             if (carts.ContainsKey(cartID))
@@ -110,11 +112,13 @@ namespace BackRowStore.Services
             return false;
         }
 
+        // returns all the carts that exist in the program
         public Dictionary<string, List<string>> getAllCarts()
         {
-            return carts;
+            return carts; 
         }
 
+        // returns all available item in the store
         public Dictionary<string, (string, double, int)> getShop()
         {
             return itemDictionary;
