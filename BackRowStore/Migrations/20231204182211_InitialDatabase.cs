@@ -4,8 +4,10 @@
 
 namespace BackRowStore.Migrations
 {
-    public partial class Initialization : Migration
+    /// <inheritdoc />
+    public partial class InitialDatabase : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -23,6 +25,7 @@ namespace BackRowStore.Migrations
                 });
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

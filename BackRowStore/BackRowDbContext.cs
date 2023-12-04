@@ -2,15 +2,18 @@
 using Microsoft.EntityFrameworkCore;
 using BackRowStore;
 
-public class BackRowDbContext : DbContext
+namespace BackRowStore
 {
-	private const string ConnectionString = "Server=localhost;PORT=5432;Database=backrowreal;User Id=hboozer;Password=Hayden10;";
+    public class BackRowDbContext : DbContext
+    {
+        public BackRowDbContext(DbContextOptions<BackRowDbContext> options) : base(options) { }
 
-    public DbSet<Item> Items { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.UseSerialColumns();
+        }
 
-	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-	{
-		base.OnConfiguring(optionsBuilder);
-		optionsBuilder.UseNpgsql(ConnectionString);
-	}
+        public DbSet<Item> Items { get; set; }
+    }
 }
+

@@ -1,0 +1,14 @@
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.deps.json
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.dll
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.pdb
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.csproj.AssemblyReference.cache
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.AssemblyInfoInputs.cache
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.AssemblyInfo.cs
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.csproj.CoreCompileInputs.cache
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.dll
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\refint\BackRowStore.Data.dll
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.pdb
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\ref\BackRowStore.Data.dll
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.runtimeconfig.json
+C:\Users\russe\source\repos\BackRowStore\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.genruntimeconfig.cache

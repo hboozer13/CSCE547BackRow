@@ -1,6 +1,8 @@
 using BackRowStore.Services;
+using BackRowStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Xml.Linq;
 
@@ -12,30 +14,15 @@ namespace BackRowStore.Controllers
     public class ItemController : ControllerBase
     {
         private readonly ItemService _itemService;
-
-        // Database of items in the store (Dictionary collection)
-        /*Dictionary<string, (string Name, double Price, int Quantity)> itemDictionary = new Dictionary<string, (string, double, int)>
-        {
-            {"001", ("water bottle", 12.99, 11) },
-            {"002", ("apple", 0.99, 23) },
-            {"003", ("PS5", 499.99, 2) },
-            {"004", ("guitar", 159.99, 6) }
-        };*/
-
         private readonly ILogger<ItemController> _logger;
         private readonly IDataService _dataService;
+        private readonly BackRowDbContext context;
 
-        /*
-        public ItemController(ILogger<ItemController> logger)
-        {
-            _logger = logger;
-        }
-        */
-
-        public ItemController(IDataService DataService, ItemService itemService)
+        public ItemController(IDataService DataService, ItemService itemService, BackRowDbContext context)
         {
             _dataService = DataService;
             _itemService = itemService;
+            this.context = context;
         }
 
         [HttpGet("AddtoDatabase", Name = "AddtoDatabase")]
