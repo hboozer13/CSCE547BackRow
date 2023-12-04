@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<ItemService>();
+
+
 
 builder.Services.AddDbContext<BackRowDbContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("BackRowDb")));
 

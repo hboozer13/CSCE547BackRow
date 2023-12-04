@@ -28,7 +28,7 @@ namespace BackRowStore.Controllers
         [HttpGet("AddtoDatabase", Name = "AddtoDatabase")]
         public IActionResult AddItemToDatabase()
         {
-            _itemService.AddNewItem("001", "bitch", 10.99, 8);
+            _itemService.AddNewItem("001", "COOL", 10.99, 8);
             return Ok("Item added to database!");
         }
 
