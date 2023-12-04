@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -13,7 +14,7 @@ namespace BackRowStore.Services
 
         public DataService()
         {
-            //Initialize Data into Dictionaries
+
             itemDictionary = new Dictionary<string, (string, double, int)>
             {
                 {"001", ("water bottle", 12.99, 11) },
@@ -30,15 +31,13 @@ namespace BackRowStore.Services
                 {"012", ("haydens room at cayce cove 222", 3.99, 1) }
             };
 
-            carts = new Dictionary<string, List<string>>
-            {
-                //
-            };
+            // This will keep track of existing carts
+            carts = new Dictionary<string, List<string>>();
 
-            bundles = new Dictionary<string, List<string>>
+            /*bundles = new Dictionary<string, List<string>>
             {
                 { "Magic Krabs Bundle", new List<string> {"005", "009"} }
-            };
+            };*/
         }
 
         public Task addToCart(string cartID, string itemID, int quantity)
@@ -47,11 +46,11 @@ namespace BackRowStore.Services
             {
                 if (carts.TryGetValue(cartID, out var cart))
                 {
-                    for (int i =0; i < quantity; i++) 
+                    for (int i = 0; i < quantity; i++)
                     {
                         cart.Add(itemID);
                     }
-                    
+
                 }
             }
             return Task.CompletedTask;

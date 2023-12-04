@@ -4,7 +4,7 @@
 
 namespace BackRowStore.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initialization : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +12,10 @@ namespace BackRowStore.Migrations
                 name: "Items",
                 columns: table => new
                 {
-                    itemID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    price = table.Column<double>(type: "float", nullable: false),
-                    quantity = table.Column<int>(type: "int", nullable: false)
+                    itemID = table.Column<string>(type: "text", nullable: false),
+                    name = table.Column<string>(type: "text", nullable: false),
+                    price = table.Column<double>(type: "double precision", nullable: false),
+                    quantity = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
