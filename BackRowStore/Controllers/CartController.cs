@@ -39,7 +39,7 @@ namespace BackRowStore.Controllers
             List<string> cartnew = _dataService.getCart(cartID);
             if (cartnew != null)
             {
-                return Ok(cartnew);
+                return Ok(cartnew); 
             }
             else
             {
@@ -54,7 +54,7 @@ namespace BackRowStore.Controllers
         /// <param name="cartID"></param>
         /// <param name="itemID"></param>
         /// <param name="quantity"></param>
-        /// <returns></returns>
+        /// <returns></returns>git
         [HttpPut("AddItemToCart", Name = "AddItemToCart")]
         public IActionResult AddItemToCart(string cartID, string itemID, int quantity)
         {
@@ -85,9 +85,9 @@ namespace BackRowStore.Controllers
         }
 
         [HttpGet("GetTotals", Name = "GetTotals")]
-        public double GetTotals(string cartID)
+        public string GetTotals(string cartID)
         {
-            double total = _dataService.getTotals(cartID);
+            string total = _dataService.getTotals(cartID);
             return total;
         }
     }

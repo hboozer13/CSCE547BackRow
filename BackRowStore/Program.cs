@@ -1,4 +1,7 @@
 using BackRowStore.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,20 +31,26 @@ app.MapControllers();
 
 app.Run();
 
-
-
-
-
-/*using BackRowStore.Services;
-
 namespace BackRowStore
 {
     public class Program
     {
 
+        public IConfiguration Configuration { get; }
+
+        public Program(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            string connectionString = Configuration.GetConnectionString("BackRowDbContext");
+            services.AddDbContext<BackRowDbContext>(options => options.UseNpgsql(connectionString));
+        }
         public static void main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            /*var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
 
@@ -67,8 +76,7 @@ namespace BackRowStore
 
             app.MapControllers();
 
-            app.Run();
+            app.Run();*/
         }
     }
 } 
-*/

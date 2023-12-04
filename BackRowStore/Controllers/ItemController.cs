@@ -11,6 +11,8 @@ namespace BackRowStore.Controllers
     [Route("[controller]")]
     public class ItemController : ControllerBase
     {
+        private readonly ItemService _itemService;
+
         // Database of items in the store (Dictionary collection)
         /*Dictionary<string, (string Name, double Price, int Quantity)> itemDictionary = new Dictionary<string, (string, double, int)>
         {
@@ -30,11 +32,18 @@ namespace BackRowStore.Controllers
         }
         */
 
-        public ItemController(IDataService DataService)
+        public ItemController(IDataService DataService, ItemService itemService)
         {
             _dataService = DataService;
+            _itemService = itemService;
         }
 
+        [HttpGet("AddtoDatabase", Name = "AddtoDatabase")]
+        public IActionResult AddItemToDatabase()
+        {
+            _itemService.AddNewItem("001", "bitch", 10.99, 8);
+            return Ok("Item added to database!");
+        }
 
         // GET request to obtain the items displayed in the store
         [HttpGet("GetAllItems", Name = "GetAllItems")]
@@ -53,6 +62,7 @@ namespace BackRowStore.Controllers
                     itemID = item.Key,
                     name = item.Value.Item1,
                     price = item.Value.Item2,
+
                     quantity = item.Value.Item3
                 });
             }

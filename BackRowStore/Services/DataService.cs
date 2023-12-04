@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BackRowStore.Services
@@ -8,10 +10,11 @@ namespace BackRowStore.Services
     {
         public Dictionary<string, (string Name, double Price, int Quantity)> itemDictionary;
         public Dictionary<string, List<string>> carts;
+        public Dictionary<string, List<string>> bundles;
 
         public DataService()
         {
-            //Initialize Data into Dictionaries
+
             itemDictionary = new Dictionary<string, (string, double, int)>
             {
                 {"001", ("water bottle", 12.99, 11) },
@@ -28,10 +31,13 @@ namespace BackRowStore.Services
                 {"012", ("haydens room at cayce cove 222", 3.99, 1) }
             };
 
-            carts = new Dictionary<string, List<string>>
+            // This will keep track of existing carts
+            carts = new Dictionary<string, List<string>>();
+
+            /*bundles = new Dictionary<string, List<string>>
             {
-                { "1e9d4ff6-22ee-4b4b-bd24-741afa04bf06", new List<string> { "005", "008" } }
-            };
+                { "Magic Krabs Bundle", new List<string> {"005", "009"} }
+            };*/
         }
 
         public Task addToCart(string cartID, string itemID, int quantity)
@@ -40,16 +46,17 @@ namespace BackRowStore.Services
             {
                 if (carts.TryGetValue(cartID, out var cart))
                 {
-                    for (int i =0; i < quantity; i++) 
+                    for (int i = 0; i < quantity; i++)
                     {
                         cart.Add(itemID);
                     }
-                    
+
                 }
             }
             return Task.CompletedTask;
         }
 
+        // 
         public List<string> getCart(string cartID)
         {
             if (carts.TryGetValue(cartID, out var cart))
@@ -70,16 +77,31 @@ namespace BackRowStore.Services
             return Task.CompletedTask;
         }
 
-        public double getTotals(string cartID)
+        public string getTotals(string cartID)
         {
             double runningTotal = 0;
+            double bundleTotal = 0;
+            double totalTax = 0;
+            string output = "";
             foreach (string item in carts[cartID])
             {
                 runningTotal += itemDictionary[item].Price;
             }
-            return runningTotal;
+            bundleTotal = runningTotal;
+            // Had to hard code in value, implementation refuses to accept an object in a dictionary so I can't make it dynamic. Will fix in part 2 of the project.
+            if (carts[cartID].Contains(bundles["Magic Krabs Bundle"][0]) && carts[cartID].Contains(bundles["Magic Krabs Bundle"][1]))
+            {
+                var id1 = bundles["Magic Krabs Bundle"][0];
+                var id2 = bundles["Magic Krabs Bundle"][1];
+                bundleTotal = runningTotal - (itemDictionary[id1].Price + itemDictionary[id2].Price) + 750.00;
+            }
+            totalTax = (bundleTotal * 0.07) + bundleTotal;
+
+            output += "runningTotal: " + runningTotal + "\nbundleTotal: " + bundleTotal + "\ntotalTax: " + totalTax;
+            return output;
         }
 
+        // validates if a cart exists given an ID
         public bool cartExists(string cartID)
         {
             if (carts.ContainsKey(cartID))
@@ -89,11 +111,13 @@ namespace BackRowStore.Services
             return false;
         }
 
+        // returns all the carts that exist in the program
         public Dictionary<string, List<string>> getAllCarts()
         {
-            return carts;
+            return carts; 
         }
 
+        // returns all available item in the store
         public Dictionary<string, (string, double, int)> getShop()
         {
             return itemDictionary;
