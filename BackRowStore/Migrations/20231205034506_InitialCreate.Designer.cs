@@ -2,6 +2,7 @@
 using BackRowStore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BackRowStore.Migrations
 {
     [DbContext(typeof(BackRowDbContext))]
-    partial class BackRowDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231205034506_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,25 +24,9 @@ namespace BackRowStore.Migrations
 
             NpgsqlModelBuilderExtensions.UseSerialColumns(modelBuilder);
 
-            modelBuilder.Entity("BackRowStore.Cart", b =>
-                {
-                    b.Property<string>("cartID")
-                        .HasColumnType("text");
-
-                    b.Property<double>("cartBalance")
-                        .HasColumnType("double precision");
-
-                    b.HasKey("cartID");
-
-                    b.ToTable("Carts");
-                });
-
             modelBuilder.Entity("BackRowStore.Item", b =>
                 {
                     b.Property<string>("itemID")
-                        .HasColumnType("text");
-
-                    b.Property<string>("cartID")
                         .HasColumnType("text");
 
                     b.Property<string>("name")
@@ -54,21 +41,7 @@ namespace BackRowStore.Migrations
 
                     b.HasKey("itemID");
 
-                    b.HasIndex("cartID");
-
                     b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("BackRowStore.Item", b =>
-                {
-                    b.HasOne("BackRowStore.Cart", null)
-                        .WithMany("items")
-                        .HasForeignKey("cartID");
-                });
-
-            modelBuilder.Entity("BackRowStore.Cart", b =>
-                {
-                    b.Navigation("items");
                 });
 #pragma warning restore 612, 618
         }

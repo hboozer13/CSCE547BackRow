@@ -11,6 +11,7 @@ public class ItemService
 
     public void AddNewItem(string itemID, string name, double price, int quantity)
     {
+        var returncode = "New item added.";
         var newItem = new Item
         {
             itemID = itemID,
@@ -19,10 +20,21 @@ public class ItemService
             quantity = quantity
         };
 
-        _context.Items.Add(newItem);
-        _context.SaveChanges();
+        try
+        {
+            _context.Items.Add(newItem);
+            _context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            // Catch exception (any) and log error message, then return error message to user
+            Console.WriteLine(e);
+            returncode = e.ToString();
+            throw;
+        }
+        
 
-        Console.WriteLine("New item added.");
+        Console.WriteLine(returncode);
     }
 }
 

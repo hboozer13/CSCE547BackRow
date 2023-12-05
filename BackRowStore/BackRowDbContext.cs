@@ -14,6 +14,7 @@ namespace BackRowStore
         }
 
         public DbSet<Item> Items { get; set; }
+        public DbSet<Cart> Carts { get; set; }
     }
 }
 

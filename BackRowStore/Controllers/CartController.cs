@@ -1,5 +1,7 @@
 ﻿using BackRowStore.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace BackRowStore.Controllers
 {
@@ -8,11 +10,16 @@ namespace BackRowStore.Controllers
     public class CartController : ControllerBase
     {
 
-        private readonly IDataService _dataService;
-
-        
-
+        //private readonly IDataService _dataService;
+        private readonly BackRowDbContext context;
         private readonly ILogger<CartController> _logger;
+        private readonly CartService _cartService;
+
+        public CartController(CartService cartService, BackRowDbContext context)
+        {
+            _cartService = cartService;
+            this.context = context;
+        }
 
         /*
         public CartController(ILogger<CartController> logger)
@@ -20,26 +27,32 @@ namespace BackRowStore.Controllers
             _logger = logger;
         }
         */
-        
+
+        /**
         public CartController(IDataService DataService)
         {
             _dataService = DataService;
         }
+        **/
 
+        // GET request to create a new cart, 
         [HttpPost("CreateCart", Name = "CreateCart")]
         public IActionResult CreateCart()
         {
-            _dataService.createCart();
-            return Ok(_dataService.getAllCarts());
+            string guid = Guid.NewGuid().ToString();
+            List<Item> items = new List<Item>();
+            _cartService.CreateCart(guid, items);
+            return Ok(guid);
         }
 
+        // GET request to get a cart and return the serialized cart
         [HttpGet("GetCart")]
         public IActionResult GetCart(string cartID)
         {
-            List<string> cartnew = _dataService.getCart(cartID);
+            Cart cartnew = _cartService.GetCart(cartID);
             if (cartnew != null)
             {
-                return Ok(cartnew); 
+                return Ok(JsonConvert.SerializeObject(cartnew)); 
             }
             else
             {
@@ -48,47 +61,38 @@ namespace BackRowStore.Controllers
         }
 
         //PUT request to add an item to a cart
-        /// <summary>
-        /// Takes a cartID, itemID and quantity to locate and add a new item to a specified cart
-        /// </summary>
-        /// <param name="cartID"></param>
-        /// <param name="itemID"></param>
-        /// <param name="quantity"></param>
-        /// <returns></returns>git
         [HttpPut("AddItemToCart", Name = "AddItemToCart")]
         public IActionResult AddItemToCart(string cartID, string itemID, int quantity)
         {
-            /*if (!string.IsNullOrEmpty(cartID))
+            if( _cartService.AddItemToCart(cartID, itemID, quantity))
             {
-                return BadRequest("cartID is empty.");
-            }*/
-            /*if (!string.IsNullOrEmpty(itemID))
-            {
-                return BadRequest("itemID is empty.");
-            }*/
-            if (quantity == 0)
-            {
-                return BadRequest("Quantity is empty");
+                return Ok();
             }
-            if (quantity > _dataService.getShop()[itemID].Item3)
+            else
             {
-                return BadRequest("Not enough item in stock!");
-            }
-            if (_dataService.cartExists(cartID))
-            {
-                _dataService.addToCart(cartID, itemID, quantity);
-                return Accepted(_dataService.getCart(cartID));
-            } else
-            {
-                return NotFound("Cart could not be found.");
+                return NotFound();
             }
         }
 
         [HttpGet("GetTotals", Name = "GetTotals")]
-        public string GetTotals(string cartID)
+        public IActionResult GetTotals(string cartID)
         {
-            string total = _dataService.getTotals(cartID);
-            return total;
+            string total = _cartService.GetTotals(cartID);
+            return Ok(total);
+        }
+
+        [HttpDelete("RemoveItem", Name = "RemoveItem")]
+        public IActionResult RemoveItem(string cartID, string itemID)
+        {
+            Cart cart = _cartService.RemoveItem(cartID, itemID);
+            if (cart != null)
+            {
+                return Ok(JsonConvert.SerializeObject(cart));
+            }
+            else
+            {
+                return NotFound("Cart/Item Not Found.");
+            }
         }
     }
 }
