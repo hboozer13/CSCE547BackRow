@@ -22,6 +22,7 @@ public class ItemService
 
         try
         {
+            // TODO: Need to see if the item is already created in the database, if it is, only update the quantity
             _context.Items.Add(newItem);
             _context.SaveChanges();
         }

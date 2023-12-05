@@ -8,5 +8,9 @@ namespace BackRowStore
 		public List<Item> items { get; set; }
 		public double cartBalance { get; set; }
 
+		public Item item { get; set; }
+
+		public string itemSerial { get; set; }
+
     }
 }

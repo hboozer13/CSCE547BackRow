@@ -1,7 +1,6 @@
 ﻿using BackRowStore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace BackRowStore.Controllers
 {
@@ -40,6 +39,7 @@ namespace BackRowStore.Controllers
         public IActionResult CreateCart()
         {
             string guid = Guid.NewGuid().ToString();
+            // TODO: Need to serialize the cart object and deserialize it when we get it back
             List<Item> items = new List<Item>();
             _cartService.CreateCart(guid, items);
             return Ok(guid);
@@ -94,5 +94,8 @@ namespace BackRowStore.Controllers
                 return NotFound("Cart/Item Not Found.");
             }
         }
+
+
+        
     }
 }

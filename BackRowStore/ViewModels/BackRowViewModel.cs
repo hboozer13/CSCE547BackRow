@@ -18,7 +18,7 @@ namespace BackRowStore.ViewModels
     {
         public string cartId { get; set; }
 
-        public List<Item> items { get; set; }
+        public string items { get; set; }
 
         public double cartBalance { get; set; }
     }

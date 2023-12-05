@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using BackRowStore;
+using Newtonsoft.Json;
 public class CartService
 {
     private readonly BackRowDbContext _context;
@@ -17,7 +18,8 @@ public class CartService
         var newCart = new Cart
         {
             cartID = cartID,
-            items = items
+            // Serialize items list
+            itemSerial = JsonConvert.SerializeObject(items, Formatting.Indented)
         };
 
         try
@@ -56,8 +58,8 @@ public class CartService
     {
         var returncode = "Item added to cart.";
         var cart = _context.Carts.Find(cartID);
+        cart.items = deserializeItem(cart.itemSerial);
         //TODO: Update quantity after adding to cart
-        //TODO: find returns null even when item exists
         var item = _context.Items.Find(itemID);
         if (cart == null || item == null)
         {
@@ -66,7 +68,7 @@ public class CartService
 
         try
         {
-            cart.items.Add(item);
+            cart.itemSerial = (JsonConvert.SerializeObject(item, Formatting.Indented));
             _context.SaveChanges();
         }
         catch (Exception e)
@@ -83,11 +85,18 @@ public class CartService
     public string GetTotals(string cartID)
     {
         var returncode = "Totals found.";
+        //TODO: update to linq and manually create obj
         var cart = _context.Carts.Find(cartID);
+        // Deserialize items list for cart
+        cart.items = deserializeItem(cart.itemSerial);
         double runningTotal = 0;
         double bundleTotal = 0;
         double totalTax = 0;
         string output = "";
+        if (cart.items == null)
+        {
+            return "Cart is empty.";
+        }
         foreach (Item item in cart.items)
         {
             runningTotal += item.price;
@@ -103,6 +112,8 @@ public class CartService
         var returncode = "Item removed from cart.";
         var cart = _context.Carts.Find(cartID);
         var item = _context.Items.Find(itemID);
+        // Deserialize items list for cart
+        cart.items = deserializeItem(cart.itemSerial);
         if (cart == null || item == null)
         {
             return null;
@@ -111,6 +122,7 @@ public class CartService
         try
         {
             cart.items.Remove(item);
+            cart.itemSerial = JsonConvert.SerializeObject(cart.items, Formatting.Indented);
             _context.SaveChanges();
         }
         catch (Exception e)
@@ -121,5 +133,19 @@ public class CartService
             throw;
         }
         return cart;
+    }
+
+    private List<Item> deserializeItem(string items)
+    {
+        if (items == null)
+        {
+            return null;
+        }
+        else
+        {
+            Console.WriteLine(JsonConvert.DeserializeObject<List<Item>>(items));
+
+            return JsonConvert.DeserializeObject<List<Item>>(items);
+        }
     }
 }
