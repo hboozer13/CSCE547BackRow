@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj": {}
+    "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj": {
+    "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj",
+        "projectUniqueName": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj",
         "projectName": "BackRowStore.Data",
-        "projectPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj",
-        "packagesPath": "C:\\Users\\chann\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\obj\\",
+        "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj",
+        "packagesPath": "C:\\Users\\russe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\chann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\russe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,9 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -76,44 +68,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj": {
+    "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
+        "projectUniqueName": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
         "projectName": "BackRowStore",
-        "projectPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
-        "packagesPath": "C:\\Users\\chann\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\obj\\",
+        "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
+        "packagesPath": "C:\\Users\\russe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\chann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\russe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,15 +95,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj": {
-                "projectPath": "C:\\Users\\chann\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj"
+              "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj": {
+                "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj"
               }
             }
           }
@@ -138,9 +111,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -191,24 +161,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -217,7 +169,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
