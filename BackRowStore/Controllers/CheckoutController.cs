@@ -25,13 +25,12 @@ namespace BackRowStore.Controllers
         [HttpGet("ProcessPayment", Name = "ProcessPayment")]
         public IActionResult ProcessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
         {
-
             if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date && _dataService.cartExists(cartId)) {
-                foreach (string item in _dataService.getCart(cartId))
+                /*foreach (string item in _dataService.getCart(cartId))
                 {
                     var itemKey = _dataService.getShop()[item];
                     _dataService.getShop()[item] = (itemKey.Item1, itemKey.Item2, (itemKey.Item3 - 1));
-                }
+                }*/
                 return Accepted();
             } else
             {

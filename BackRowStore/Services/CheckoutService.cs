@@ -10,4 +10,6 @@ public class CheckoutService
     {
         _context = context;
     }
+
+    // USELESS FUCKING CLASS
 }

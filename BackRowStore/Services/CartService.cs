@@ -149,7 +149,6 @@ public class CartService
             var itemnew = _context.Items.Find(item);
             runningTotal += itemnew.price;
         }
-        //TODO: Add bundle logic
         bundleTotal = runningTotal;
         var bundleCheck = cartnew.items;
         
@@ -176,12 +175,13 @@ public class CartService
                 }
             }
         totalTax = bundleTotal * 0.07;
-        output = "Subtotal: " + Math.Round(bundleTotal, 2, MidpointRounding.AwayFromZero) + "\nTax: " + Math.Round(totalTax, 2, MidpointRounding.AwayFromZero) + "\nTotal: " + Math.Round((bundleTotal + totalTax), 2, MidpointRounding.AwayFromZero);
+        output = "Subtotal: " + Math.Round(runningTotal, 2, MidpointRounding.AwayFromZero) + "\nDiscounted Price: " + Math.Round(bundleTotal,2,MidpointRounding.AwayFromZero) + "\nTax: " + Math.Round(totalTax, 2, MidpointRounding.AwayFromZero) + "\nTotal: " + Math.Round((bundleTotal + totalTax), 2, MidpointRounding.AwayFromZero);
         return output;
     }
 
     public Cart RemoveItem(string cartID, string itemID)
     {
+        var item = _context.Items.FirstOrDefault(i => i.itemID == itemID);
         var returncode = "Item removed from cart.";
         var cart = _context.Carts.Find(cartID);
         var cartnew = deserializeItem(cart.cartSerial);
@@ -207,6 +207,13 @@ public class CartService
             returncode = e.ToString();
             throw;
         }
+
+        if (item != null)
+        {
+            item.quantity += 1;
+            _context.SaveChanges();
+        }
+
         return cartnew;
     }
 

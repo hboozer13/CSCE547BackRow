@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BackRowStore",
+    "\\BackRowStore\\Controllers",
+    "\\BackRowStore\\Services"
   ],
-  "SelectedNode": "\\C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow",
+  "SelectedNode": "\\BackRowStore\\Services\\DataService.cs",
   "PreviewInSolutionExplorer": false
 }

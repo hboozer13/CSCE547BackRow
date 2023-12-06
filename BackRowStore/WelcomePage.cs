@@ -9,6 +9,6 @@ public class WelcomePage
 
 	public WelcomePage()
 	{
-		//
+		// WHAT THE FUCK IS THIS SHIT
 	}
 }

@@ -70,7 +70,7 @@ namespace BackRowStore.Controllers
             }
             else
             {
-                return NotFound();
+                return NotFound("Not enough item in stock!");
             }
         }
 
