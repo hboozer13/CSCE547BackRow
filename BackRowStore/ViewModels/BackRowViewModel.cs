@@ -13,7 +13,7 @@ namespace BackRowStore.ViewModels
         public int quantity { get; set; }
     }
 
-    [Table("Carts")]
+    [Table("CartSerial")]
     public class CartSerial
     {
         public string cartSerial { get; set; }
