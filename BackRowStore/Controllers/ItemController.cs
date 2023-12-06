@@ -16,13 +16,13 @@ namespace BackRowStore.Controllers
         private readonly ItemService _itemService;
         private readonly ILogger<ItemController> _logger;
         private readonly IDataService _dataService;
-        private readonly BackRowDbContext context;
+        private readonly BackRowDbContext _context;
 
         public ItemController(IDataService DataService, ItemService itemService, BackRowDbContext context)
         {
             _dataService = DataService;
             _itemService = itemService;
-            this.context = context;
+            _context = context;
         }
 
         [HttpGet("AddtoDatabase", Name = "AddtoDatabase")]
@@ -36,22 +36,22 @@ namespace BackRowStore.Controllers
         [HttpGet("GetAllItems", Name = "GetAllItems")]
         public IEnumerable<Item> GetAllItems()
         {
-            // Projects each item in the dictionary to a new 'Item' object
-            // Use of LINQ Query
-            if (_dataService.getShop().Count == 0)
+            var items = from item in _context.Items
+                        select new Item
+                        {
+                            itemID = item.itemID,
+                            name = item.name,
+                            price = item.price,
+                            quantity = item.quantity
+                        };
+
+            if (!items.Any())
             {
                 return Enumerable.Empty<Item>();
-            } else
+            }
+            else
             {
-                // Use of LINQ Query
-                return _dataService.getShop().Select(item => new Item
-                {
-                    itemID = item.Key,
-                    name = item.Value.Item1,
-                    price = item.Value.Item2,
-
-                    quantity = item.Value.Item3
-                });
+                return items.ToList();
             }
         }
     }
