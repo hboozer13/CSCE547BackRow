@@ -2,9 +2,19 @@
   "ExpandedNodes": [
     "",
     "\\BackRowStore",
+<<<<<<< HEAD
     "\\BackRowStore\\Controllers",
     "\\BackRowStore\\Services"
   ],
   "SelectedNode": "\\BackRowStore\\Services\\DataService.cs",
+=======
+    "\\BackRowStore.Data",
+    "\\BackRowStore\\Controllers",
+    "\\BackRowStore\\Migrations",
+    "\\BackRowStore\\Services",
+    "\\BackRowStore\\ViewModels"
+  ],
+  "SelectedNode": "\\BackRowStore\\Services\\CartService.cs",
+>>>>>>> 5a78534a74fd4fe44d19298850494591ea7776aa
   "PreviewInSolutionExplorer": false
 }
