@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<ItemService>();
 builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<InventoryService>();
 
 
 
