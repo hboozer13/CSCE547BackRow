@@ -87,7 +87,10 @@ public class CartService
 
         try
         {
-            cartnew.items.Add(itemID);
+            for (int i = 0; i < quantity; i++)
+            {
+                cartnew.items.Add(itemID);
+            }
             cart.cartSerial = (JsonConvert.SerializeObject(cartnew).ToString());
             _context.SaveChanges();
         }
@@ -141,7 +144,7 @@ public class CartService
         cart.items = deserializeItem(cart.itemSerial);
         **/
         // TODO: Check if item is valid item in db
-        if (cart == null || itemID == null || _context.Items.Find(itemID) != null)
+        if (cart == null || itemID == null || _context.Items.Find(itemID) == null)
         {
             return null;
         }
