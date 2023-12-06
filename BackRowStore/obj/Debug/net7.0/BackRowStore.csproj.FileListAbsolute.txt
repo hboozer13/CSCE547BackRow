@@ -215,3 +215,5 @@ C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\BackRow
 C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\obj\Debug\net7.0\BackRowStore.sourcelink.json
 C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\libman.json
 C:\Users\chann\source\repos\CSCE547BackRow\BackRowStore\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\russe\source\repos\BackRowStore\BackRowStore\bin\Debug\net7.0\libman.json
+C:\Users\russe\source\repos\BackRowStore\BackRowStore\bin\Debug\net7.0\Newtonsoft.Json.dll
