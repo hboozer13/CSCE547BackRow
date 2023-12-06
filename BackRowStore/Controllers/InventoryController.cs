@@ -19,15 +19,16 @@ namespace BackRowStore.Controllers
 
         }
 
-        [HttpPut("UpdateStock/{itemId}")]
-        public void UpdateQuantity(string itemId, int newStock)
+        [HttpPut("UpdateStock")]
+        public void UpdateStock(string itemId, int newStock)
         {
-            var item = _context.Items.FirstOrDefault(i => i.itemID == itemId);
-            if (item != null)
-            {
-                item.quantity = newStock;
-                _context.SaveChanges();
-            }
+            _inventoryService.UpdateQuantity(itemId, newStock);
+        }
+
+        [HttpPut("ChangePrice")]
+        public void ChangePrice(string itemId, double newPrice)
+        {
+            _inventoryService.UpdatePrice(itemId, newPrice);
         }
     }
 }

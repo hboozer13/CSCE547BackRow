@@ -19,5 +19,15 @@
             }
         }
 
+        public void UpdatePrice(string itemId, double newPrice)
+        {
+            var item = _context.Items.FirstOrDefault(i => i.itemID == itemId);
+            if (item != null)
+            {
+                item.price = newPrice;
+                _context.SaveChanges();
+            }
+        }
+
     }
 }
