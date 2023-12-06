@@ -222,6 +222,7 @@ public class CartService
             throw;
         }
 
+        // add the item back to stock
         if (item != null)
         {
             item.quantity += 1;
