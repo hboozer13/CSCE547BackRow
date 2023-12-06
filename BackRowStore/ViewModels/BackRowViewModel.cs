@@ -14,13 +14,9 @@ namespace BackRowStore.ViewModels
     }
 
     [Table("Carts")]
-    public class Cart
+    public class CartSerial
     {
-        public string cartId { get; set; }
-
-        public string items { get; set; }
-
-        public double cartBalance { get; set; }
+        public string cartSerial { get; set; }
     }
 
 

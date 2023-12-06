@@ -40,7 +40,7 @@ namespace BackRowStore.Controllers
         {
             string guid = Guid.NewGuid().ToString();
             // TODO: Need to serialize the cart object and deserialize it when we get it back
-            List<Item> items = new List<Item>();
+            List<string> items = new List<string>();
             _cartService.CreateCart(guid, items);
             return Ok(guid);
         }

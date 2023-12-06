@@ -12,19 +12,26 @@ public class CartService
     }
 
     // Add new cart to database
-    public void CreateCart(string cartID, List<Item> items)
+    public void CreateCart(string cartID, List<string> items)
     {
         var returncode = "New cart added.";
         var newCart = new Cart
         {
             cartID = cartID,
-            // Serialize items list
-            itemSerial = JsonConvert.SerializeObject(items, Formatting.Indented)
+            items = items,
+        };
+
+        // Serialize cart to JSON, put in db
+        var newCartDB = new CartSerial
+        {
+            Id = cartID,
+            cartSerial = JsonConvert.SerializeObject(newCart).ToString()
+
         };
 
         try
         {
-            _context.Carts.Add(newCart);
+            _context.Carts.Add(newCartDB);
             _context.SaveChanges();
         }
         catch (Exception e)
@@ -42,6 +49,7 @@ public class CartService
     {
         var returncode = "Cart found.";
         var cart = _context.Carts.Find(cartID);
+        var cartnew = new Cart();
 
         if (cart == null)
         {
@@ -50,25 +58,37 @@ public class CartService
             return null;
         }
 
+        try
+        {
+            cartnew = deserializeItem(cart.cartSerial);
+        }
+        catch (Exception e)
+        {
+            // Catch exception (any) and log error message, then return error message to user
+            Console.WriteLine(e);
+            returncode = e.ToString();
+            throw;
+        }
         Console.WriteLine(returncode);
-        return cart;
+        return cartnew;
     }
 
     public Boolean AddItemToCart(string cartID, string itemID, int quantity)
     {
         var returncode = "Item added to cart.";
         var cart = _context.Carts.Find(cartID);
-        cart.items = deserializeItem(cart.itemSerial);
-        //TODO: Update quantity after adding to cart
-        var item = _context.Items.Find(itemID);
-        if (cart == null || item == null)
+        var cartnew = deserializeItem(cart.cartSerial);
+
+        
+        if (cart == null || itemID == null)
         {
             return false;
         }
 
         try
         {
-            cart.itemSerial = (JsonConvert.SerializeObject(item, Formatting.Indented));
+            cartnew.items.Add(itemID);
+            cart.cartSerial = (JsonConvert.SerializeObject(cartnew).ToString());
             _context.SaveChanges();
         }
         catch (Exception e)
@@ -87,19 +107,23 @@ public class CartService
         var returncode = "Totals found.";
         //TODO: update to linq and manually create obj
         var cart = _context.Carts.Find(cartID);
+        var cartnew = deserializeItem(cart.cartSerial);
+        /**
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
+        **/
         double runningTotal = 0;
         double bundleTotal = 0;
         double totalTax = 0;
         string output = "";
-        if (cart.items == null)
+        if (cartnew.items == null)
         {
             return "Cart is empty.";
         }
-        foreach (Item item in cart.items)
+        foreach (string item in cartnew.items)
         {
-            runningTotal += item.price;
+            var itemnew = _context.Items.Find(item);
+            runningTotal += itemnew.price;
         }
         //TODO: Add bundle logic
         totalTax = bundleTotal * 0.07;
@@ -111,18 +135,21 @@ public class CartService
     {
         var returncode = "Item removed from cart.";
         var cart = _context.Carts.Find(cartID);
-        var item = _context.Items.Find(itemID);
+        var cartnew = deserializeItem(cart.cartSerial);
+        /**
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
-        if (cart == null || item == null)
+        **/
+        // TODO: Check if item is valid item in db
+        if (cart == null || itemID == null || _context.Items.Find(itemID) != null)
         {
             return null;
         }
 
         try
         {
-            cart.items.Remove(item);
-            cart.itemSerial = JsonConvert.SerializeObject(cart.items, Formatting.Indented);
+            cartnew.items.Remove(itemID);
+            cart.cartSerial = JsonConvert.SerializeObject(cartnew).ToString();
             _context.SaveChanges();
         }
         catch (Exception e)
@@ -132,20 +159,18 @@ public class CartService
             returncode = e.ToString();
             throw;
         }
-        return cart;
+        return cartnew;
     }
 
-    private List<Item> deserializeItem(string items)
+    private Cart deserializeItem(string cart)
     {
-        if (items == null)
+        if (cart == null)
         {
             return null;
         }
         else
         {
-            Console.WriteLine(JsonConvert.DeserializeObject<List<Item>>(items));
-
-            return JsonConvert.DeserializeObject<List<Item>>(items);
+            return JsonConvert.DeserializeObject<Cart>(cart);
         }
     }
 }
