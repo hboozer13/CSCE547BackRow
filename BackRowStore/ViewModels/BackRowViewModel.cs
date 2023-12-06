@@ -13,14 +13,10 @@ namespace BackRowStore.ViewModels
         public int quantity { get; set; }
     }
 
-    [Table("Carts")]
-    public class Cart
+    [Table("CartSerial")]
+    public class CartSerial
     {
-        public string cartId { get; set; }
-
-        public string items { get; set; }
-
-        public double cartBalance { get; set; }
+        public string cartSerial { get; set; }
     }
 
 
