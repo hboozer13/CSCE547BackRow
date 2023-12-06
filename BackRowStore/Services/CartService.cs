@@ -75,10 +75,17 @@ public class CartService
 
     public Boolean AddItemToCart(string cartID, string itemID, int quantity)
     {
+        // LINQ QUERY
+        var item = _context.Items.FirstOrDefault(i => i.itemID == itemID);
         var returncode = "Item added to cart.";
         var cart = _context.Carts.Find(cartID);
         var cartnew = deserializeItem(cart.cartSerial);
 
+        // Prevents user from adding something to cart that is out of stock or adding more items than are currently available
+        if (item.quantity < quantity || item.quantity == 0)
+        {
+            return false;
+        }
         
         if (cart == null || itemID == null)
         {
@@ -100,6 +107,12 @@ public class CartService
             Console.WriteLine(e);
             returncode = e.ToString();
             throw;
+        }
+
+        if (item != null)
+        {
+            item.quantity -= quantity;
+            _context.SaveChanges();
         }
 
         return true;

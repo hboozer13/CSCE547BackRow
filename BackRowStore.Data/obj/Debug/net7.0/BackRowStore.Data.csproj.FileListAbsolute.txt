@@ -27,3 +27,17 @@ C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\re
 C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.pdb
 C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.genruntimeconfig.cache
 C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\ref\BackRowStore.Data.dll
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.deps.json
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.runtimeconfig.json
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.dll
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\bin\Debug\net7.0\BackRowStore.Data.pdb
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.csproj.AssemblyReference.cache
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.AssemblyInfoInputs.cache
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.AssemblyInfo.cs
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.csproj.CoreCompileInputs.cache
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.dll
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\refint\BackRowStore.Data.dll
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.pdb
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\BackRowStore.Data.genruntimeconfig.cache
+C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore.Data\obj\Debug\net7.0\ref\BackRowStore.Data.dll

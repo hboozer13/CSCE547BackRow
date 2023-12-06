@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\BackRowStore",
-    "\\BackRowStore.Data",
-    "\\BackRowStore\\Controllers",
-    "\\BackRowStore\\Migrations",
-    "\\BackRowStore\\Services",
-    "\\BackRowStore\\ViewModels"
+    ""
   ],
-  "SelectedNode": "\\BackRowStore\\appsettings.json",
+  "SelectedNode": "\\C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow",
   "PreviewInSolutionExplorer": false
 }
