@@ -25,8 +25,8 @@ namespace BackRowStore.Controllers
             _context = context;
         }
 
-        [HttpGet("AddtoDatabase", Name = "AddtoDatabase")]
-        public IActionResult AddItemToDatabase()
+        [HttpGet("InitialStore", Name = "InitialStore")]
+        public IActionResult InitialStore()
         {
             _itemService.AddNewItem("001", "water bottle", 12.99, 11);
             _itemService.AddNewItem("002", "apple", 0.99, 23);
@@ -40,6 +40,13 @@ namespace BackRowStore.Controllers
             _itemService.AddNewItem("010", "capgemini fast pass", 10000, 1);
             _itemService.AddNewItem("011", "florida gators calculator", 99.99, 2);
             _itemService.AddNewItem("012", "haydens room at cayce cove 222", 3.99, 1);
+            return Ok("Items added to database!");
+        }
+
+        [HttpPut("AddtoDatabase", Name = "AddtoDatabase")]
+        public IActionResult AddItemToDatabase(string itemID, string name, double price, int quantity)
+        {
+            _itemService.AddNewItem(itemID, name, price, quantity);
             return Ok("Item added to database!");
         }
 
