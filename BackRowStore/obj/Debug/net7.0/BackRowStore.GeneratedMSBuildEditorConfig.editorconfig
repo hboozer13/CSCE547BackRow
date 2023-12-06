@@ -9,7 +9,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BackRowStore
 build_property.RootNamespace = BackRowStore
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
@@ -17,11 +16,4 @@ build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\chann\Source\Repos\CSCE547BackRow\BackRowStore
-=======
-build_property.ProjectDir = C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore\
-build_property.RazorLangVersion = 7.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Hayden Boozer\Source\Repos\CSCE547BackRow\BackRowStore
->>>>>>> 6b9d8588849b7f6b3a260b55e1a4dabad2a1167a
 build_property._RazorSourceGeneratorDebug = 

@@ -16,7 +16,7 @@ public class CartService
     private void InitBundles()
     {
         bundleCollection.Add(1, new Bundle("001", new List<string>{"001", "002", "003"}, 499.99));
-        bundleCollection.Add(1, new Bundle("002", new List<string> { "005", "009" }, 799.99));
+        bundleCollection.Add(2, new Bundle("002", new List<string> { "005", "009" }, 799.99));
     }
 
     // Add new cart to database
@@ -132,6 +132,7 @@ public class CartService
         //TODO: update to linq and manually create obj
         var cart = _context.Carts.Find(cartID);
         var cartnew = deserializeItem(cart.cartSerial);
+        InitBundles();
         /**
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
@@ -151,30 +152,43 @@ public class CartService
         }
         //TODO: Add bundle logic
         bundleTotal = runningTotal;
-        var bundleCheck = cartnew.items;
+        var bundleCheck = copyList(cartnew.items);
         
-            for (int i = 0; i < bundleCollection.Count; i++)
+        // Check cart item list for bundles and apply discounts
+        // Bundle i in bundle collection returning nothing
+        foreach (Bundle i in bundleCollection.Values)
+        {
+            List<string> bundleitems = copyList(i.items);
+            while (!bundleCheck.Except(bundleitems).Any() && bundleCheck.Count > 0)
             {
-                var passcheck = true;
                 var total = 0.0;
-                var diff = 0.0;
-                for (int j = 0; j < bundleCollection[i].items.Count; j++)
+                foreach (string item in bundleitems)
                 {
-                    total += _context.Items.Find(bundleCollection[i].items[j]).price;
-                    if (!bundleCheck.Contains(bundleCollection[i].items[j]))
-                    {
-                        passcheck = false;
-                        break;
-                    }
+                    total += _context.Items.Find(item).price;
+                    bundleCheck.Remove(item);
                 }
-                if (passcheck)
-                {
-                    // Calculate difference from prices of items in bundle and bundle price
-                    diff = total -= bundleCollection[i].price;
-                    diff = Math.Round(diff, 2);
-                    bundleTotal -= diff;
-                }
+                bundleTotal -= (total - i.price);
             }
+        }
+
+        /**
+        foreach (Bundle i in bundleCollection.Values)
+        {
+            List<string> bundleitems = copyList(i.items);
+            while (!bundleCheck.Except(bundleitems).Any())
+            {
+                var total = 0.0;
+                foreach (string item in bundleitems)
+                {
+                    total += _context.Items.Find(item).price;
+                    bundleCheck.Remove(item);
+                }
+                bundleTotal -= (total - i.price);
+            }
+        }
+        **/
+        
+        
         totalTax = bundleTotal * 0.07;
         output = "Subtotal: " + Math.Round(bundleTotal, 2, MidpointRounding.AwayFromZero) + "\nTax: " + Math.Round(totalTax, 2, MidpointRounding.AwayFromZero) + "\nTotal: " + Math.Round((bundleTotal + totalTax), 2, MidpointRounding.AwayFromZero);
         return output;
@@ -220,5 +234,15 @@ public class CartService
         {
             return JsonConvert.DeserializeObject<Cart>(cart);
         }
+    }
+
+    private List<string> copyList(List<string> list)
+    {
+        List<string> newList = new List<string>();
+        foreach (string item in list)
+        {
+            newList.Add(item);
+        }
+        return newList;
     }
 }

@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BackRowStore",
+    "\\BackRowStore.Data",
+    "\\BackRowStore\\Controllers",
+    "\\BackRowStore\\Migrations",
+    "\\BackRowStore\\Services",
+    "\\BackRowStore\\ViewModels"
   ],
-  "SelectedNode": "\\C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow",
+  "SelectedNode": "\\BackRowStore\\Services\\CartService.cs",
   "PreviewInSolutionExplorer": false
 }
