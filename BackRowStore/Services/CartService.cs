@@ -11,6 +11,8 @@ public class CartService
         _context = context;
     }
 
+    private Dictionary<int, List<string>> bundleCollection = new Dictionary<int, List<string>>();
+
     // Add new cart to database
     public void CreateCart(string cartID, List<string> items)
     {
@@ -129,6 +131,13 @@ public class CartService
             runningTotal += itemnew.price;
         }
         //TODO: Add bundle logic
+        bundleTotal = runningTotal;
+        var bundleCheck = cartnew.items;
+        while (bundleCheck.Contains(""))
+        {
+            bundleTotal -= 5;
+            bundleCheck.Remove("BUNDLE");
+        }
         totalTax = bundleTotal * 0.07;
         output = "Subtotal: " + bundleTotal + "\nTax: " + totalTax + "\nTotal: " + (bundleTotal + totalTax);
         return output;
