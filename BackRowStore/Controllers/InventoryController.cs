@@ -20,15 +20,44 @@ namespace BackRowStore.Controllers
         }
 
         [HttpPut("UpdateStock")]
-        public void UpdateStock(string itemId, int newStock)
+        public IActionResult UpdateStock(string itemId, int newStock)
         {
-            _inventoryService.UpdateQuantity(itemId, newStock);
+            if (_context.Items.Any(i => i.itemID == itemId))
+            {
+                if (newStock < 0)
+                {
+                    return BadRequest("That is not a valid quantity");
+                } else
+                {
+                    _inventoryService.UpdateQuantity(itemId, newStock);
+                    return Ok("Stock successfully updated!");
+                }
+            } else
+            {
+                return BadRequest("That item ID does not exist");
+            }
+            
         }
 
         [HttpPut("ChangePrice")]
-        public void ChangePrice(string itemId, double newPrice)
+        public IActionResult ChangePrice(string itemId, double newPrice)
         {
-            _inventoryService.UpdatePrice(itemId, newPrice);
+            if (_context.Items.Any(i => i.itemID == itemId))
+            {
+                if (newPrice < 0)
+                {
+                    return BadRequest("That is not a valid price");
+                }
+                else
+                {
+                    _inventoryService.UpdatePrice(itemId, newPrice);
+                    return Ok("Stock successfully updated!");
+                }
+            }
+            else
+            {
+                return BadRequest("That item ID does not exist");
+            }
         }
     }
 }

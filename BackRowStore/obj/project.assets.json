@@ -2851,11 +2851,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Hayden Boozer\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\russe\\.nuget\\packages\\": {}
+>>>>>>> 38c65df4d7469cd506c1fad75de6f8e9b245e855
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
       "projectName": "BackRowStore",
       "projectPath": "C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow\\BackRowStore\\BackRowStore.csproj",
@@ -2864,6 +2869,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hayden Boozer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
+      "projectName": "BackRowStore",
+      "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\BackRowStore.csproj",
+      "packagesPath": "C:\\Users\\russe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\russe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 38c65df4d7469cd506c1fad75de6f8e9b245e855
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2877,8 +2892,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj": {
               "projectPath": "C:\\Users\\Hayden Boozer\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj"
+=======
+            "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj": {
+              "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj"
+>>>>>>> 38c65df4d7469cd506c1fad75de6f8e9b245e855
             }
           }
         }
@@ -2945,7 +2965,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> 38c65df4d7469cd506c1fad75de6f8e9b245e855
       }
     }
   }
