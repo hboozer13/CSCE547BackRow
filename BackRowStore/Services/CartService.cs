@@ -11,7 +11,13 @@ public class CartService
         _context = context;
     }
 
-    private Dictionary<int, List<string>> bundleCollection = new Dictionary<int, List<string>>();
+    private Dictionary<int, Bundle> bundleCollection = new Dictionary<int, Bundle>();
+
+    private void InitBundles()
+    {
+        bundleCollection.Add(1, new Bundle("001", new List<string>{"001", "002", "003"}, 499.99));
+        bundleCollection.Add(1, new Bundle("002", new List<string> { "005", "009" }, 799.99));
+    }
 
     // Add new cart to database
     public void CreateCart(string cartID, List<string> items)
@@ -133,13 +139,31 @@ public class CartService
         //TODO: Add bundle logic
         bundleTotal = runningTotal;
         var bundleCheck = cartnew.items;
-        while (bundleCheck.Contains(""))
-        {
-            bundleTotal -= 5;
-            bundleCheck.Remove("BUNDLE");
-        }
+        
+            for (int i = 0; i < bundleCollection.Count; i++)
+            {
+                var passcheck = true;
+                var total = 0.0;
+                var diff = 0.0;
+                for (int j = 0; j < bundleCollection[i].items.Count; j++)
+                {
+                    total += _context.Items.Find(bundleCollection[i].items[j]).price;
+                    if (!bundleCheck.Contains(bundleCollection[i].items[j]))
+                    {
+                        passcheck = false;
+                        break;
+                    }
+                }
+                if (passcheck)
+                {
+                    // Calculate difference from prices of items in bundle and bundle price
+                    diff = total -= bundleCollection[i].price;
+                    diff = Math.Round(diff, 2);
+                    bundleTotal -= diff;
+                }
+            }
         totalTax = bundleTotal * 0.07;
-        output = "Subtotal: " + bundleTotal + "\nTax: " + totalTax + "\nTotal: " + (bundleTotal + totalTax);
+        output = "Subtotal: " + Math.Round(bundleTotal, 2, MidpointRounding.AwayFromZero) + "\nTax: " + Math.Round(totalTax, 2, MidpointRounding.AwayFromZero) + "\nTotal: " + Math.Round((bundleTotal + totalTax), 2, MidpointRounding.AwayFromZero);
         return output;
     }
 
@@ -152,7 +176,6 @@ public class CartService
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
         **/
-        // TODO: Check if item is valid item in db
         if (cart == null || itemID == null || _context.Items.Find(itemID) == null)
         {
             return null;
