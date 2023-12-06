@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\BackRowStore",
-    "\\BackRowStore\\Controllers"
+    "\\BackRowStore.Data",
+    "\\BackRowStore\\Controllers",
+    "\\BackRowStore\\Migrations",
+    "\\BackRowStore\\Services",
+    "\\BackRowStore\\ViewModels"
   ],
-  "SelectedNode": "\\BackRowStore.sln",
+  "SelectedNode": "\\BackRowStore\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
