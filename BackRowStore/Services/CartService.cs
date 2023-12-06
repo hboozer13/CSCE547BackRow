@@ -11,6 +11,14 @@ public class CartService
         _context = context;
     }
 
+    private Dictionary<int, Bundle> bundleCollection = new Dictionary<int, Bundle>();
+
+    private void InitBundles()
+    {
+        bundleCollection.Add(1, new Bundle("001", new List<string>{"001", "002", "003"}, 499.99));
+        bundleCollection.Add(2, new Bundle("002", new List<string> { "005", "009" }, 799.99));
+    }
+
     // Add new cart to database
     public void CreateCart(string cartID, List<string> items)
     {
@@ -75,10 +83,17 @@ public class CartService
 
     public Boolean AddItemToCart(string cartID, string itemID, int quantity)
     {
+        // LINQ QUERY
+        var item = _context.Items.FirstOrDefault(i => i.itemID == itemID);
         var returncode = "Item added to cart.";
         var cart = _context.Carts.Find(cartID);
         var cartnew = deserializeItem(cart.cartSerial);
 
+        // Prevents user from adding something to cart that is out of stock or adding more items than are currently available
+        if (item.quantity < quantity || item.quantity == 0)
+        {
+            return false;
+        }
         
         if (cart == null || itemID == null)
         {
@@ -102,6 +117,12 @@ public class CartService
             throw;
         }
 
+        if (item != null)
+        {
+            item.quantity -= quantity;
+            _context.SaveChanges();
+        }
+
         return true;
     }
 
@@ -111,6 +132,7 @@ public class CartService
         //TODO: update to linq and manually create obj
         var cart = _context.Carts.Find(cartID);
         var cartnew = deserializeItem(cart.cartSerial);
+        InitBundles();
         /**
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
@@ -129,8 +151,46 @@ public class CartService
             runningTotal += itemnew.price;
         }
         //TODO: Add bundle logic
+        bundleTotal = runningTotal;
+        var bundleCheck = copyList(cartnew.items);
+        
+        // Check cart item list for bundles and apply discounts
+        // Bundle i in bundle collection returning nothing
+        foreach (Bundle i in bundleCollection.Values)
+        {
+            List<string> bundleitems = copyList(i.items);
+            while (!bundleCheck.Except(bundleitems).Any() && bundleCheck.Count > 0)
+            {
+                var total = 0.0;
+                foreach (string item in bundleitems)
+                {
+                    total += _context.Items.Find(item).price;
+                    bundleCheck.Remove(item);
+                }
+                bundleTotal -= (total - i.price);
+            }
+        }
+
+        /**
+        foreach (Bundle i in bundleCollection.Values)
+        {
+            List<string> bundleitems = copyList(i.items);
+            while (!bundleCheck.Except(bundleitems).Any())
+            {
+                var total = 0.0;
+                foreach (string item in bundleitems)
+                {
+                    total += _context.Items.Find(item).price;
+                    bundleCheck.Remove(item);
+                }
+                bundleTotal -= (total - i.price);
+            }
+        }
+        **/
+        
+        
         totalTax = bundleTotal * 0.07;
-        output = "Subtotal: " + bundleTotal + "\nTax: " + totalTax + "\nTotal: " + (bundleTotal + totalTax);
+        output = "Subtotal: " + Math.Round(bundleTotal, 2, MidpointRounding.AwayFromZero) + "\nTax: " + Math.Round(totalTax, 2, MidpointRounding.AwayFromZero) + "\nTotal: " + Math.Round((bundleTotal + totalTax), 2, MidpointRounding.AwayFromZero);
         return output;
     }
 
@@ -143,7 +203,6 @@ public class CartService
         // Deserialize items list for cart
         cart.items = deserializeItem(cart.itemSerial);
         **/
-        // TODO: Check if item is valid item in db
         if (cart == null || itemID == null || _context.Items.Find(itemID) == null)
         {
             return null;
@@ -175,5 +234,15 @@ public class CartService
         {
             return JsonConvert.DeserializeObject<Cart>(cart);
         }
+    }
+
+    private List<string> copyList(List<string> list)
+    {
+        List<string> newList = new List<string>();
+        foreach (string item in list)
+        {
+            newList.Add(item);
+        }
+        return newList;
     }
 }

@@ -8,6 +8,6 @@
     "\\BackRowStore\\Services",
     "\\BackRowStore\\ViewModels"
   ],
-  "SelectedNode": "\\BackRowStore\\appsettings.json",
+  "SelectedNode": "\\BackRowStore\\Services\\CartService.cs",
   "PreviewInSolutionExplorer": false
 }
