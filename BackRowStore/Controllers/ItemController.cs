@@ -44,10 +44,16 @@ namespace BackRowStore.Controllers
         }
 
         [HttpPut("AddtoDatabase", Name = "AddtoDatabase")]
-        public IActionResult AddItemToDatabase(string itemID, string name, double price, int quantity)
+        public IActionResult AddItemToDatabase(string itemId, string name, double price, int quantity)
         {
-            _itemService.AddNewItem(itemID, name, price, quantity);
-            return Ok("Item added to database!");
+            if (!(_context.Items.Any(i => i.itemID == itemId)) && price > 0 && quantity > 0)
+            {
+                _itemService.AddNewItem(itemId, name, price, quantity);
+                return Ok("Item added to database!");
+            } else
+            {
+                return BadRequest("Could not add item to database");
+            }
         }
 
         // GET request to obtain the items displayed in the store

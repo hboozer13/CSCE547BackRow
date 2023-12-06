@@ -9,12 +9,12 @@ public class ItemService
         _context = context;
     }
 
-    public void AddNewItem(string itemID, string name, double price, int quantity)
+    public void AddNewItem(string itemId, string name, double price, int quantity)
     {
         var returncode = "New item added.";
         var newItem = new Item
         {
-            itemID = itemID,
+            itemID = itemId,
             name = name,
             price = price,
             quantity = quantity
@@ -22,7 +22,6 @@ public class ItemService
 
         try
         {
-            // TODO: Need to see if the item is already created in the database, if it is, only update the quantity
             _context.Items.Add(newItem);
             _context.SaveChanges();
         }
