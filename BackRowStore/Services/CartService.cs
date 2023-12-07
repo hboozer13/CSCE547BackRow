@@ -155,10 +155,12 @@ public class CartService
         
         // Check cart item list for bundles and apply discounts
         // Bundle i in bundle collection returning nothing
+        Boolean check = true;
+        
         foreach (Bundle i in bundleCollection.Values)
         {
             List<string> bundleitems = copyList(i.items);
-            while (!bundleCheck.Except(bundleitems).Any() && bundleCheck.Count > 0)
+            while (checkCartForBundles(bundleCheck) && bundleCheck.Count > 0 && !bundleCheck.Except(bundleitems).Any())
             {
                 var total = 0.0;
                 foreach (string item in bundleitems)
@@ -252,5 +254,39 @@ public class CartService
             newList.Add(item);
         }
         return newList;
+    }
+
+    private Boolean checkCartForBundles(List<string> bundleCheck)
+    {
+        Boolean ret = true;
+        foreach (var i in bundleCollection.Values)
+        {
+            for (int j = 0; j < i.items.Count; j++)
+            {
+                ret = ret && bundleCheck.Contains(i.items[j]);
+            }
+            if (ret)
+            {
+                return ret;
+            }
+            else
+            {
+                ret = true;
+            }
+        }
+        return false;
+
+        /**
+        Boolean ret = false;
+        foreach (var i in bundleCollection.Values)
+        {
+            if (bundleCheck.Contains(i.items))
+            {
+                ret = ret || true;
+            }
+        }
+        **/
+            
+
     }
 }
