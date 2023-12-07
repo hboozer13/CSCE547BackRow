@@ -289,4 +289,26 @@ public class CartService
             
 
     }
+
+
+
+    // validates if a cart exists given an ID
+    public bool cartExists(string cartID)
+    {
+        if (_context.Carts.Find(cartID) != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void clearCart(string cartID)
+    {
+        var cart = _context.Carts.Find(cartID);
+        var cartnew = deserializeItem(cart.cartSerial);
+
+        cartnew.items.Clear();
+        cart.cartSerial = JsonConvert.SerializeObject(cartnew).ToString();
+        _context.SaveChanges();
+    }
 }
