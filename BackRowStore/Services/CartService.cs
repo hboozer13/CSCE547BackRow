@@ -160,7 +160,7 @@ public class CartService
         foreach (Bundle i in bundleCollection.Values)
         {
             List<string> bundleitems = copyList(i.items);
-            while (checkCartForBundles(bundleCheck) && bundleCheck.Count > 0 && !bundleCheck.Except(bundleitems).Any())
+            while (checkCartForBundles(bundleCheck, i.items) && bundleCheck.Count > 0 )
             {
                 var total = 0.0;
                 foreach (string item in bundleitems)
@@ -256,21 +256,23 @@ public class CartService
         return newList;
     }
 
-    private Boolean checkCartForBundles(List<string> bundleCheck)
+    private Boolean checkCartForBundles(List<string> bundleCheck, List<string> bundle)
     {
-        Boolean ret = true;
-        foreach (var i in bundleCollection.Values)
+        var bundleCheckChecker = copyList(bundleCheck);
+        if(bundleCheck.Any(item => bundle.Any(bundle => bundle.Contains(item))))
         {
-            for (int j = 0; j < i.items.Count; j++)
+            List<string> bundleIDs = copyList(bundle);
+            Boolean ret = true;
+            foreach (var i in bundle)
             {
-                ret = ret && bundleCheck.Contains(i.items[j]);
-            }
-            if (ret)
-            {
-                return ret;
-            }
-            else
-            {
+                foreach (string item in bundleIDs)
+                {
+                    ret = ret && bundleCheckChecker.Contains(item);
+                }
+                if (ret)
+                {
+                    return true;
+                }
                 ret = true;
             }
         }
