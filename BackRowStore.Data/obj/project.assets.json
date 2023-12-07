@@ -1027,19 +1027,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\russe\\.nuget\\packages\\": {}
+    "C:\\Users\\Hayden's PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Hayden's PC\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj",
       "projectName": "BackRowStore.Data",
-      "projectPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\BackRowStore.Data.csproj",
-      "packagesPath": "C:\\Users\\russe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\russe\\source\\repos\\BackRowStore\\BackRowStore.Data\\obj\\",
+      "projectPath": "C:\\Users\\Hayden's PC\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\BackRowStore.Data.csproj",
+      "packagesPath": "C:\\Users\\Hayden's PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hayden's PC\\Source\\Repos\\CSCE547BackRow\\BackRowStore.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\russe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hayden's PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1098,7 +1098,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
