@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackRowStore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed4fcb7baef1c8ab73902515f6892fd535dbc34f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42b27015826750a075d0d8beb0299bff3dce8f77")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackRowStore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackRowStore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

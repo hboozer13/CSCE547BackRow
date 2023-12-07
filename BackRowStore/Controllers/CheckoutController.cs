@@ -7,13 +7,13 @@ namespace BackRowStore.Controllers
     [Route("[controller]")]
     public class CheckoutController : ControllerBase
     {
-        private readonly ILogger<CheckoutController> _logger;
-        private readonly IDataService _dataService;
+        //private readonly ILogger<CheckoutController> _logger;
+        private readonly CartService _cartService;
 
 
-        public CheckoutController(IDataService DataService)
+        public CheckoutController(CartService cartService)
         {
-            _dataService = DataService;
+            _cartService = cartService;
         }
         /*
         public CheckoutController(ILogger<CheckoutController> logger)
@@ -25,12 +25,8 @@ namespace BackRowStore.Controllers
         [HttpGet("ProcessPayment", Name = "ProcessPayment")]
         public IActionResult ProcessPayment(string cartId, string cardNumber, DateTime exp, string cardholderName, string cvc)
         {
-            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date && _dataService.cartExists(cartId)) {
-                /*foreach (string item in _dataService.getCart(cartId))
-                {
-                    var itemKey = _dataService.getShop()[item];
-                    _dataService.getShop()[item] = (itemKey.Item1, itemKey.Item2, (itemKey.Item3 - 1));
-                }*/
+            if (cardNumber.Length == 16 && cvc.Length == 3 && exp.Date > DateTime.Now.Date && _cartService.cartExists(cartId)) {
+                _cartService.clearCart(cartId);
                 return Accepted();
             } else
             {
